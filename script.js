@@ -1,38 +1,54 @@
-let expenses = [];
-let names = {};
+// Initialize expense tracking
+const expenses = {
+    person1: 0,
+    person2: 0,
+    person3: 0
+};
 
-function addExpense() {
-    const person = document.getElementById('person').value;
-    const expense = parseFloat(document.getElementById('expense').value);
-
-    if (person && !isNaN(expense) && expense > 0) {
-        expenses.push({ person, amount: expense });
-
-        // Update list
-        const expenseList = document.getElementById('expenseList');
-        const listItem = document.createElement('li');
-        listItem.textContent = `${person}: $${expense.toFixed(2)}`;
-        expenseList.appendChild(listItem);
-
-        // Update summary
-        updateSummary();
-        
-        // Clear input fields
-        document.getElementById('person').value = '';
-        document.getElementById('expense').value = '';
-    } else {
-        alert('Please enter valid data.');
-    }
+function addExpense(person) {
+    const amount = parseFloat(document.getElementById(person).value) || 0;
+    expenses[person] += amount;
+    document.getElementById(person).value = '';
+    displayExpenses();
 }
 
-function updateSummary() {
-    const totalExpenses = expenses.reduce((sum, e) => sum + e.amount, 0);
-    const numPeople = new Set(expenses.map(e => e.person)).size;
-    const perPerson = totalExpenses / numPeople;
+function subtractExpense(person) {
+    const amount = parseFloat(document.getElementById(person).value) || 0;
+    expenses[person] -= amount;
+    document.getElementById(person).value = '';
+    displayExpenses();
+}
 
-    let summary = `<p>Total Expenses: $${totalExpenses.toFixed(2)}</p>`;
-    summary += `<p>Per Person Share: $${perPerson.toFixed(2)}</p>`;
+function calculateExpenses() {
+    const totalExpense = expenses.person1 + expenses.person2 + expenses.person3;
+    const equalShare = totalExpense / 3;
+    
+    const person1Balance = expenses.person1 - equalShare;
+    const person2Balance = expenses.person2 - equalShare;
+    const person3Balance = expenses.person3 - equalShare;
+    
+    let result = '';
+    if (person1Balance > 0) {
+        result += `Person 1 should receive $${person1Balance.toFixed(2)}. `;
+    } else if (person1Balance < 0) {
+        result += `Person 1 owes $${Math.abs(person1Balance).toFixed(2)}. `;
+    }
+    
+    if (person2Balance > 0) {
+        result += `Person 2 should receive $${person2Balance.toFixed(2)}. `;
+    } else if (person2Balance < 0) {
+        result += `Person 2 owes $${Math.abs(person2Balance).toFixed(2)}. `;
+    }
+    
+    if (person3Balance > 0) {
+        result += `Person 3 should receive $${person3Balance.toFixed(2)}. `;
+    } else if (person3Balance < 0) {
+        result += `Person 3 owes $${Math.abs(person3Balance).toFixed(2)}. `;
+    }
 
-    const summaryDiv = document.getElementById('summary');
-    summaryDiv.innerHTML = summary;
+    document.getElementById('result').innerText = result;
+}
+
+function displayExpenses() {
+    document.getElementById('result').innerText = `Person 1: $${expenses.person1.toFixed(2)}, Person 2: $${expenses.person2.toFixed(2)}, Person 3: $${expenses.person3.toFixed(2)}`;
 }
