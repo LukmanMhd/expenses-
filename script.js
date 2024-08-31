@@ -52,3 +52,18 @@ function calculateExpenses() {
 function displayExpenses() {
     document.getElementById('result').innerText = `Person 1: $${expenses.person1.toFixed(2)}, Person 2: $${expenses.person2.toFixed(2)}, Person 3: $${expenses.person3.toFixed(2)}`;
 }
+
+function clearData() {
+    // Reset expenses
+    expenses.person1 = 0;
+    expenses.person2 = 0;
+    expenses.person3 = 0;
+
+    // Clear input fields
+    document.getElementById('person1').value = '';
+    document.getElementById('person2').value = '';
+    document.getElementById('person3').value = '';
+
+    // Clear results display
+    document.getElementById('result').innerText = 'Data cleared.';
+}
