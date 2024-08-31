@@ -1,24 +1,44 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
 }
 
-label {
-    margin-right: 10px;
+header {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
 }
 
-input {
-    margin-bottom: 10px;
+main {
+    text-align: center;
+    padding: 20px;
+}
+
+.expense-input {
+    margin: 10px 0;
+}
+
+input[type="number"] {
+    padding: 5px;
+    font-size: 16px;
 }
 
 button {
-    margin-bottom: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
 }
 
-ul {
-    list-style-type: none;
+button:hover {
+    background-color: #45a049;
 }
 
-li {
-    margin-bottom: 5px;
+#result {
+    margin-top: 20px;
 }
