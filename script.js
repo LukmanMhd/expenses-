@@ -50,7 +50,7 @@ function calculateExpenses() {
 }
 
 function displayExpenses() {
-    document.getElementById('result').innerText = `ISMAIL : Rs ${expenses.person1.toFixed(2)}, AHADHU Rs ${expenses.person2.toFixed(2)}, LUKMAN Rs ${expenses.person3.toFixed(2)}`;
+    document.getElementById('result').innerText = `ISMAIL - Rs ${expenses.person1.toFixed(2)}, AHADHU - Rs ${expenses.person2.toFixed(2)}, LUKMAN -  Rs ${expenses.person3.toFixed(2)}`;
 }
 
 function clearData() {
