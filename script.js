@@ -29,28 +29,28 @@ function calculateExpenses() {
     
     let result = '';
     if (person1Balance > 0) {
-        result += `ISMAIL should receive $${person1Balance.toFixed(2)}. `;
+        result += `ISMAIL should receive Rs ${person1Balance.toFixed(2)}. `;
     } else if (person1Balance < 0) {
-        result += `ISMAIL owes $${Math.abs(person1Balance).toFixed(2)}. `;
+        result += `ISMAIL owes Rs ${Math.abs(person1Balance).toFixed(2)}. `;
     }
     
     if (person2Balance > 0) {
-        result += `AHADHU should receive $${person2Balance.toFixed(2)}. `;
+        result += `AHADHU should receive Rs ${person2Balance.toFixed(2)}. `;
     } else if (person2Balance < 0) {
-        result += `AHADHU owes $${Math.abs(person2Balance).toFixed(2)}. `;
+        result += `AHADHU owes Rs ${Math.abs(person2Balance).toFixed(2)}. `;
     }
     
     if (person3Balance > 0) {
-        result += `LUKMAN should receive RS ${person3Balance.toFixed(2)}. `;
+        result += `LUKMAN should receive Rs ${person3Balance.toFixed(2)}. `;
     } else if (person3Balance < 0) {
-        result += `LUKMAN owes $${Math.abs(person3Balance).toFixed(2)}. `;
+        result += `LUKMAN owes Rs ${Math.abs(person3Balance).toFixed(2)}. `;
     }
 
     document.getElementById('result').innerText = result;
 }
 
 function displayExpenses() {
-    document.getElementById('result').innerText = `ISMAIL : $${expenses.person1.toFixed(2)}, AHADHU $${expenses.person2.toFixed(2)}, LUKMAN $${expenses.person3.toFixed(2)}`;
+    document.getElementById('result').innerText = `ISMAIL : Rs ${expenses.person1.toFixed(2)}, AHADHU Rs ${expenses.person2.toFixed(2)}, LUKMAN Rs ${expenses.person3.toFixed(2)}`;
 }
 
 function clearData() {
