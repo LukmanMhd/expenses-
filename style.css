@@ -25,27 +25,29 @@ main {
     margin: 0 auto;
 }
 
+/* Form styling */
 form {
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
 
+/* Expense input styling */
 .expense-input {
     display: flex;
-    align-items: center;
+    flex-direction: column; /* Stack label and input vertically on small screens */
     gap: 0.5em;
 }
 
 .expense-input label {
     font-weight: bold;
-    flex: 1;
 }
 
 .expense-input input {
-    flex: 2;
     padding: 0.5em;
     font-size: 1em;
+    width: 100%; /* Full width on mobile */
+    box-sizing: border-box; /* Includes padding in width */
 }
 
 /* Button styling */
@@ -67,7 +69,7 @@ button.subtract {
 }
 
 button.default {
-    background-color: #8A2BE2; /* Violet */
+    background-color: #006400; /* DarkGreen */
 }
 
 button:hover {
@@ -85,7 +87,7 @@ button:hover {
 }
 
 /* Responsive Design */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     main {
         padding: 1em;
     }
@@ -95,6 +97,23 @@ button:hover {
     }
 
     .expense-input label, .expense-input input {
-        width: 100%;
+        width: 100%; /* Full width for inputs and labels */
+    }
+
+    button {
+        font-size: 0.9em; /* Slightly smaller text on mobile */
+        padding: 0.4em;
+    }
+}
+
+@media (max-width: 480px) {
+    button {
+        font-size: 0.8em; /* Smaller text size on very small screens */
+        padding: 0.3em;
+    }
+
+    #result {
+        margin-top: 1em; /* Adjust margin on smaller screens */
+        padding: 0.8em;
     }
 }
