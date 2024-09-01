@@ -53,7 +53,8 @@ function calculateExpenses() {
         result = 'No need to pay anyone.';
     }
 
-    document.getElementById('result').innerText = result;
+    document.getElementById('result').innerText = `Final Balances:\n\n${result}`;
+    displayExpenses(); // Include detailed expenses in the final result
 }
 
 function displayExpenses() {
@@ -64,14 +65,14 @@ function displayExpenses() {
         const { details, total } = expenses[person];
 
         if (details.length > 0) {
-            result += `${personName} - Details: ${details.join(', ')} | Total: Rs ${total.toFixed(2)}. `;
+            result += `${personName} - Details: ${details.join(', ')} | Total: Rs ${total.toFixed(2)}\n`;
         }
     });
 
     if (result === '') {
         result = 'No expenses recorded.';
     }
-    document.getElementById('result').innerText = result;
+    document.getElementById('result').innerText += `\n\nExpense Details:\n\n${result}`;
 }
 
 function clearData() {
@@ -89,8 +90,8 @@ function clearData() {
 
 // Export to PDF
 function exportToPDF() {
-    const { person1, person2, person3 } = expenses;
-    let doc = new jsPDF();
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
     doc.setFontSize(18);
     doc.text("Expense Tracker Report", 14, 22);
@@ -114,3 +115,4 @@ function exportToPDF() {
 
     doc.save('expense_report.pdf');
 }
+
