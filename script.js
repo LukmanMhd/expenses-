@@ -1,31 +1,47 @@
 // Initialize expense tracking
 const expenses = {
-    person1: 0,
-    person2: 0,
-    person3: 0
+    person1: { total: 0, details: [] },
+    person2: { total: 0, details: [] },
+    person3: { total: 0, details: [] }
 };
 
-function addExpense(person) {
-    const amount = parseFloat(document.getElementById(person).value) || 0;
-    expenses[person] += amount;
-    document.getElementById(person).value = '';
-    displayExpenses();
+function parseAmounts(input) {
+    return input.split(',')
+        .map(amount => parseFloat(amount.trim()))
+        .filter(amount => !isNaN(amount) && amount > 0);
 }
 
-function subtractExpense(person) {
-    const amount = parseFloat(document.getElementById(person).value) || 0;
-    expenses[person] -= amount;
-    document.getElementById(person).value = '';
-    displayExpenses();
+function addExpenses(person) {
+    const input = document.getElementById(person).value;
+    const amounts = parseAmounts(input);
+    
+    if (amounts.length > 0) {
+        amounts.forEach(amount => expenses[person].details.push(amount));
+        expenses[person].total += amounts.reduce((a, b) => a + b, 0);
+        document.getElementById(person).value = '';
+        displayExpenses();
+    }
+}
+
+function subtractExpenses(person) {
+    const input = document.getElementById(person).value;
+    const amounts = parseAmounts(input);
+    
+    if (amounts.length > 0) {
+        amounts.forEach(amount => expenses[person].details.push(-amount));
+        expenses[person].total -= amounts.reduce((a, b) => a + b, 0);
+        document.getElementById(person).value = '';
+        displayExpenses();
+    }
 }
 
 function calculateExpenses() {
-    const totalExpense = expenses.person1 + expenses.person2 + expenses.person3;
+    const totalExpense = expenses.person1.total + expenses.person2.total + expenses.person3.total;
     const equalShare = totalExpense / 3;
     
-    const person1Balance = expenses.person1 - equalShare;
-    const person2Balance = expenses.person2 - equalShare;
-    const person3Balance = expenses.person3 - equalShare;
+    const person1Balance = expenses.person1.total - equalShare;
+    const person2Balance = expenses.person2.total - equalShare;
+    const person3Balance = expenses.person3.total - equalShare;
     
     let result = '';
     if (person1Balance > 0) {
@@ -46,18 +62,37 @@ function calculateExpenses() {
         result += `LUKMAN owes Rs ${Math.abs(person3Balance).toFixed(2)}. `;
     }
 
+    if (result === '') {
+        result = 'No need to pay anyone.';
+    }
+
     document.getElementById('result').innerText = result;
 }
 
 function displayExpenses() {
-    document.getElementById('result').innerText = `ISMAIL - Rs ${expenses.person1.toFixed(2)}, AHADHU - Rs ${expenses.person2.toFixed(2)}, LUKMAN -  Rs ${expenses.person3.toFixed(2)}`;
+    const { person1, person2, person3 } = expenses;
+    let result = '';
+    
+    if (person1.details.length > 0) {
+        result += `ISMAIL - Details: ${person1.details.join(', ')} | Total: Rs ${person1.total.toFixed(2)}. `;
+    }
+    if (person2.details.length > 0) {
+        result += `AHADHU - Details: ${person2.details.join(', ')} | Total: Rs ${person2.total.toFixed(2)}. `;
+    }
+    if (person3.details.length > 0) {
+        result += `LUKMAN - Details: ${person3.details.join(', ')} | Total: Rs ${person3.total.toFixed(2)}. `;
+    }
+    if (result === '') {
+        result = 'No expenses recorded.';
+    }
+    document.getElementById('result').innerText = result;
 }
 
 function clearData() {
     // Reset expenses
-    expenses.person1 = 0;
-    expenses.person2 = 0;
-    expenses.person3 = 0;
+    expenses.person1 = { total: 0, details: [] };
+    expenses.person2 = { total: 0, details: [] };
+    expenses.person3 = { total: 0, details: [] };
 
     // Clear input fields
     document.getElementById('person1').value = '';
