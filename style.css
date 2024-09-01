@@ -65,7 +65,7 @@ button.subtract {
 }
 
 button.default {
-    width: 25px;  /* Fixed width for buttons */
+    width: 60px;  /* Fixed width for buttons */
     background-color: #2196F3; /* Blue color for default buttons */
 }
 
