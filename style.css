@@ -1,125 +1,73 @@
-/* Basic reset for margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+/* General styling for the whole page */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+    background-color: #f0f8ff; /* AliceBlue for a soft background */
+    color: #333; /* Dark gray text for better readability */
+    margin: 0;
+    padding: 0;
 }
 
 header {
-    background-color: #4CAF50; /* Green background */
-    color: #fff;
-    padding: 10px 0;
+    background-color: #4CAF50; /* Green background for header */
+    color: white;
+    padding: 1em;
     text-align: center;
 }
 
 h1 {
     margin: 0;
-    font-size: 2rem;
 }
 
+/* Main content styling */
 main {
+    padding: 2em;
     max-width: 800px;
     margin: 0 auto;
-    background: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 form {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 .expense-input {
-    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
 
 label {
-    display: block;
     font-weight: bold;
-    color: #333;
 }
 
-input[type="text"] {
-    width: calc(100% - 130px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
+/* Button styling */
 button {
-    padding: 8px 12px;
     border: none;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #007bff; /* Blue background */
+    padding: 0.5em 1em;
+    color: white;
+    font-size: 1em;
     cursor: pointer;
-    margin-right: 5px;
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue */
+button.add {
+    background-color: #4CAF50; /* Green color for add buttons */
 }
 
+button.subtract {
+    background-color: #f44336; /* Red color for subtract buttons */
+}
+
+button.default {
+    background-color: #2196F3; /* Blue color for default buttons */
+}
+
+/* Result section styling */
 #result {
-    margin-top: 20px;
-    padding: 10px;
-    background-color: #e9ecef; /* Light gray background */
+    margin-top: 2em;
+    padding: 1em;
     border: 1px solid #ddd;
     border-radius: 4px;
-}
-
-/* Responsive design for mobile devices */
-@media (max-width: 600px) {
-    body {
-        padding: 10px;
-    }
-
-    header {
-        padding: 8px 0;
-    }
-
-    h1 {
-        font-size: 1.5rem;
-    }
-
-    main {
-        padding: 15px;
-    }
-
-    input[type="text"] {
-        width: calc(100% - 80px); /* Adjust width for mobile */
-    }
-
-    button {
-        width: 100%;
-        margin-bottom: 5px;
-    }
-
-    button:last-of-type {
-        margin-bottom: 0;
-    }
-}
-
-/* Adjustments for very small screens */
-@media (max-width: 400px) {
-    h1 {
-        font-size: 1.2rem;
-    }
-
-    input[type="text"] {
-        width: calc(100% - 60px); /* Further adjust width for very small screens */
-    }
-
-    button {
-        padding: 10px;
-    }
+    background-color: #fff; /* White background for results */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
