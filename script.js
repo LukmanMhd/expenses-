@@ -38,7 +38,6 @@ function calculateExpenses() {
     const equalShare = totalExpense / 3;
     
     let result = '';
-
     ['person1', 'person2', 'person3'].forEach(person => {
         const personName = document.querySelector(`label[for="${person}"]`).innerText;
         const balance = expenses[person].total - equalShare;
@@ -86,4 +85,32 @@ function clearData() {
 
     // Clear results display
     document.getElementById('result').innerText = 'Data cleared.';
+}
+
+// Export to PDF
+function exportToPDF() {
+    const { person1, person2, person3 } = expenses;
+    let doc = new jsPDF();
+
+    doc.setFontSize(18);
+    doc.text("Expense Tracker Report", 14, 22);
+    
+    let y = 30;
+    ['person1', 'person2', 'person3'].forEach(person => {
+        const personName = document.querySelector(`label[for="${person}"]`).innerText;
+        const { details, total } = expenses[person];
+        
+        if (details.length > 0) {
+            doc.setFontSize(14);
+            doc.text(`${personName}`, 14, y);
+            y += 10;
+            doc.setFontSize(12);
+            doc.text(`Details: ${details.join(', ')}`, 14, y);
+            y += 10;
+            doc.text(`Total: Rs ${total.toFixed(2)}`, 14, y);
+            y += 20;
+        }
+    });
+
+    doc.save('expense_report.pdf');
 }
