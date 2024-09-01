@@ -54,6 +54,7 @@ button {
     color: white;
     font-size: 1em;
     cursor: pointer;
+    width: 60px;  /* Fixed width for buttons */
 }
 
 button.add {
@@ -65,7 +66,6 @@ button.subtract {
 }
 
 button.default {
-    width: 60px;  /* Fixed width for buttons */
     background-color: #2196F3; /* Blue color for default buttons */
 }
 
