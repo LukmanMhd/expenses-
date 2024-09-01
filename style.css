@@ -7,7 +7,7 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9; /* Light gray background for a pleasant look */
     color: #333;
     padding: 20px;
 }
@@ -48,7 +48,7 @@ label {
 }
 
 input[type="text"] {
-    width: calc(100% - 130px);
+    width: calc(100% - 150px);
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -56,17 +56,54 @@ input[type="text"] {
 }
 
 button {
-    padding: 8px 12px;
+    padding: 10px 15px;
     border: none;
     border-radius: 4px;
     color: #fff;
-    background-color: #007bff; /* Blue background */
     cursor: pointer;
+    font-weight: bold;
     margin-right: 5px;
 }
 
-button:hover {
-    background-color: #0056b3; /* Darker blue */
+/* Specific button styles */
+button.add {
+    background-color: #28a745; /* Dark green for Add */
+}
+
+button.add:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+button.subtract {
+    background-color: #dc3545; /* Dark red for Subtract */
+}
+
+button.subtract:hover {
+    background-color: #c82333; /* Darker red on hover */
+}
+
+button.calculate {
+    background-color: #007bff; /* Blue for Calculate */
+}
+
+button.calculate:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+button.clear {
+    background-color: #ffc107; /* Yellow for Clear */
+}
+
+button.clear:hover {
+    background-color: #e0a800; /* Darker yellow on hover */
+}
+
+button.export {
+    background-color: #17a2b8; /* Teal for Export */
+}
+
+button.export:hover {
+    background-color: #138496; /* Darker teal on hover */
 }
 
 #result {
@@ -96,7 +133,7 @@ button:hover {
     }
 
     input[type="text"] {
-        width: calc(100% - 80px); /* Adjust width for mobile */
+        width: calc(100% - 70px); /* Adjust width for mobile */
     }
 
     button {
