@@ -5,81 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Monthly Expense Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* General styling for the whole page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f8ff; /* AliceBlue for a soft background */
-            color: #333; /* Dark gray text for better readability */
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #4CAF50; /* Green background for header */
-            color: white;
-            padding: 1em;
-            text-align: center;
-        }
-
-        h1 {
-            margin: 0;
-        }
-
-        /* Main content styling */
-        main {
-            padding: 2em;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-
-        .expense-input {
-            display: flex;
-            flex-direction: column;
-            gap: 0.5em;
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        /* Button styling */
-        button {
-            border: none;
-            padding: 0.5em 1em;
-            color: white;
-            font-size: 1em;
-            cursor: pointer;
-        }
-
-        button.add {
-            background-color: #4CAF50; /* Green color for add buttons */
-        }
-
-        button.subtract {
-            background-color: #f44336; /* Red color for subtract buttons */
-        }
-
-        button.default {
-            background-color: #2196F3; /* Blue color for default buttons */
-        }
-
-        /* Result section styling */
-        #result {
-            margin-top: 2em;
-            padding: 1em;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            background-color: #fff; /* White background for results */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -91,20 +16,20 @@
             <div class="expense-input">
                 <label for="person1">ISMAIL</label>
                 <input type="text" id="person1" placeholder="Enter amounts separated by commas">
-                <button type="button" class="add" onclick="updateExpenses('person1', true)"> ADD AMOUNT (+) </button>
-                <button type="button" class="subtract" onclick="updateExpenses('person1', false)"> SUBTRACT AMOUNT (-) </button>
+                <button type="button" class="add" onclick="updateExpenses('person1', true)"> + </button>
+                <button type="button" class="subtract" onclick="updateExpenses('person1', false)"> - </button>
             </div>
             <div class="expense-input">
                 <label for="person2">AHADHU</label>
                 <input type="text" id="person2" placeholder="Enter amounts separated by commas">
-                <button type="button" class="add" onclick="updateExpenses('person2', true)"> ADD AMOUNT (+) </button>
-                <button type="button" class="subtract" onclick="updateExpenses('person2', false)"> SUBTRACT AMOUNT (-) </button>
+                <button type="button" class="add" onclick="updateExpenses('person2', true)"> + </button>
+                <button type="button" class="subtract" onclick="updateExpenses('person2', false)"> - </button>
             </div>
             <div class="expense-input">
                 <label for="person3">LUKMAN</label>
                 <input type="text" id="person3" placeholder="Enter amounts separated by commas">
-                <button type="button" class="add" onclick="updateExpenses('person3', true)"> ADD AMOUNT (+) </button>
-                <button type="button" class="subtract" onclick="updateExpenses('person3', false)"> SUBTRACT AMOUNT (-) </button>
+                <button type="button" class="add" onclick="updateExpenses('person3', true)"> + </button>
+                <button type="button" class="subtract" onclick="updateExpenses('person3', false)"> - </button>
             </div>
             <button type="button" class="default" onclick="calculateExpenses()"> CALC FINAL </button>
             <button type="button" class="default" onclick="clearData()"> CLEAR ALL </button>
