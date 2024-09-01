@@ -62,17 +62,17 @@ button {
 
 button.add {
     background-color: #006400; /* DarkGreen */
-    width: 25px;
+    width: 50px;
 }
 
 button.subtract {
     background-color: #8B0000; /* DarkRed */
-    width: 25px;
+    width: 50px;
 }
 
 button.default {
     background-color: #006400; /* DarkGreen */
-    width: 40px;
+    width: 75px;
 }
 
 button:hover {
