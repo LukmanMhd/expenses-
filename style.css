@@ -34,9 +34,9 @@ form {
 
 /* Expense input styling */
 .expense-input {
-    display: flex;
-    flex-direction: column; /* Stack label and input vertically on small screens */
-    gap: 0.5em;
+    /* display: flex;
+    flex-direction: column;
+    gap: 0.5em; */
 }
 
 .expense-input label {
@@ -44,10 +44,10 @@ form {
 }
 
 .expense-input input {
-    padding: 0.5em;
+   /* padding: 0.5em;
     font-size: 1em;
-    width: 100%; /* Full width on mobile */
-    box-sizing: border-box; /* Includes padding in width */
+    width: 100%;
+    box-sizing: border-box; */
 }
 
 /* Button styling */
