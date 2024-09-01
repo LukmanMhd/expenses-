@@ -97,7 +97,7 @@ function exportToPDF() {
     doc.text("Expense Tracker Report", 14, 22);
     
     let y = 30;
-    ['person1', 'person2', 'person3'].forEach(person => {
+    Object.keys(expenses).forEach(person => {
         const personName = document.querySelector(`label[for="${person}"]`).innerText;
         const { details, total } = expenses[person];
         
@@ -115,4 +115,3 @@ function exportToPDF() {
 
     doc.save('expense_report.pdf');
 }
-
