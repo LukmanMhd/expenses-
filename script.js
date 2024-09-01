@@ -8,7 +8,7 @@ const expenses = {
 function parseAmounts(input) {
     return input.split(',')
         .map(amount => parseFloat(amount.trim()))
-        .filter(amount => !isNaN(amount) && amount !== 0);
+        .filter(amount => !isNaN(amount) && amount > 0);
 }
 
 function updateExpenses(person, isAdding) {
