@@ -75,29 +75,33 @@ function displayExpenses() {
     document.getElementById('result').innerText += `\n\nExpense Details:\n\n${result}`;
 }
 
-function clearData() {
-    // Reset expenses
-    Object.keys(expenses).forEach(person => {
-        expenses[person] = { total: 0, details: [] };
-    });
-
-    // Clear input fields
-    document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
-
-    // Clear results display
-    document.getElementById('result').innerText = 'Data cleared.';
-}
-
 // Export to text file
 function exportToText() {
     let text = 'Expense Tracker Report\n\n';
 
+    // Add detailed expenses
     Object.keys(expenses).forEach(person => {
         const personName = document.querySelector(`label[for="${person}"]`).innerText;
         const { details, total } = expenses[person];
         
         if (details.length > 0) {
             text += `${personName} - Details: ${details.join(', ')} | Total: Rs ${total.toFixed(2)}\n`;
+        }
+    });
+
+    // Add final balances
+    const totalExpense = expenses.person1.total + expenses.person2.total + expenses.person3.total;
+    const equalShare = totalExpense / 3;
+
+    text += '\nFinal Balances:\n';
+    ['person1', 'person2', 'person3'].forEach(person => {
+        const personName = document.querySelector(`label[for="${person}"]`).innerText;
+        const balance = expenses[person].total - equalShare;
+
+        if (balance > 0) {
+            text += `${personName} should receive Rs ${balance.toFixed(2)}.\n`;
+        } else if (balance < 0) {
+            text += `${personName} owes Rs ${Math.abs(balance).toFixed(2)}.\n`;
         }
     });
 
