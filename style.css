@@ -76,3 +76,50 @@ button:hover {
     border: 1px solid #ddd;
     border-radius: 4px;
 }
+
+/* Responsive design for mobile devices */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    header {
+        padding: 8px 0;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    main {
+        padding: 15px;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 80px); /* Adjust width for mobile */
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    button:last-of-type {
+        margin-bottom: 0;
+    }
+}
+
+/* Adjustments for very small screens */
+@media (max-width: 400px) {
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    input[type="text"] {
+        width: calc(100% - 60px); /* Further adjust width for very small screens */
+    }
+
+    button {
+        padding: 10px;
+    }
+}
