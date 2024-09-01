@@ -75,7 +75,6 @@ function displayExpenses() {
     document.getElementById('result').innerText += `\n\nExpense Details:\n\n${result}`;
 }
 
-// Export to text file
 function exportToText() {
     let text = 'Expense Tracker Report\n\n';
 
@@ -116,4 +115,13 @@ function exportToText() {
     a.download = 'expense_report.txt';
     a.click();
     URL.revokeObjectURL(url);
+}
+
+function clearData() {
+    Object.keys(expenses).forEach(person => {
+        expenses[person].total = 0;
+        expenses[person].details = [];
+        document.getElementById(person).value = '';
+    });
+    document.getElementById('result').innerText = '';
 }
