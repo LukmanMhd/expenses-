@@ -88,30 +88,28 @@ function clearData() {
     document.getElementById('result').innerText = 'Data cleared.';
 }
 
-// Export to PDF
-function exportToPDF() {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
+// Export to text file
+function exportToText() {
+    let text = 'Expense Tracker Report\n\n';
 
-    doc.setFontSize(18);
-    doc.text("Expense Tracker Report", 14, 22);
-    
-    let y = 30;
     Object.keys(expenses).forEach(person => {
         const personName = document.querySelector(`label[for="${person}"]`).innerText;
         const { details, total } = expenses[person];
         
         if (details.length > 0) {
-            doc.setFontSize(14);
-            doc.text(`${personName}`, 14, y);
-            y += 10;
-            doc.setFontSize(12);
-            doc.text(`Details: ${details.join(', ')}`, 14, y);
-            y += 10;
-            doc.text(`Total: Rs ${total.toFixed(2)}`, 14, y);
-            y += 20;
+            text += `${personName} - Details: ${details.join(', ')} | Total: Rs ${total.toFixed(2)}\n`;
         }
     });
 
-    doc.save('expense_report.pdf');
+    if (text.trim() === 'Expense Tracker Report') {
+        text += 'No expenses recorded.';
+    }
+
+    const blob = new Blob([text], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'expense_report.txt';
+    a.click();
+    URL.revokeObjectURL(url);
 }
