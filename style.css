@@ -48,26 +48,25 @@ form {
     font-size: 1em;
 }
 
-/* button {
+button {
     border: none;
     padding: 0.5em;
     color: white;
     font-size: 1em;
     cursor: pointer;
-    width: 60px;
 }
 
 button.add {
-    background-color: #4CAF50; 
+    background-color: DarkGreen; 
 }
 
 button.subtract {
-    background-color: #f44336;
+    background-color: DarkRed;
 }
 
 button.default {
-    background-color: green; 
-} */
+    background-color: Violet; 
+}
 
 #result {
     margin-top: 2em;
