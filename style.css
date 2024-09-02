@@ -58,7 +58,6 @@ button {
     font-size: 1em;
     cursor: pointer;
     transition: background-color 0.3s, opacity 0.3s; */
-    color: white;
 }
 
 button.add {
